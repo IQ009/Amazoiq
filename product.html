@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Details - Amazo IQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Amazo IQ</a>
+    </div>
+  </header>
+
+  <main class="product-detail">
+    <div class="container detail-grid">
+      <div class="detail-image" style="text-align:center;">
+        <img id="product-img" src="" alt="Product Image" />
+        <h2 id="product-price" class="price"></h2>
+        <a id="amazon-link" href="#" target="_blank" class="buy-btn">Buy on Amazon</a>
+
+        <!-- Rating & Feedback -->
+        <div style="margin-top: 30px;">
+          <h3>Rate this product</h3>
+          <div>
+            <label><input type="radio" name="rating" value="1"> 1</label>
+            <label><input type="radio" name="rating" value="2"> 2</label>
+            <label><input type="radio" name="rating" value="3"> 3</label>
+            <label><input type="radio" name="rating" value="4"> 4</label>
+            <label><input type="radio" name="rating" value="5"> 5</label>
+          </div>
+          <textarea id="feedbackText" placeholder="Write your feedback..."></textarea>
+          <button onclick="submitFeedback()" class="buy-btn">Submit Feedback</button>
+          <p id="feedbackMsg" style="color: green;"></p>
+        </div>
+      </div>
+
+      <div class="detail-info">
+        <h2 id="product-title"></h2>
+        <ul id="product-specs"></ul>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </main>
+
+  <script>
+    const products = {
+      s24ultra: {
+        title: "Samsung Galaxy S24 Ultra",
+        price: "₹91,850",
+        image: "https://i.postimg.cc/Zq5qdpH8/IMG-20250503-WA0003.jpg",
+        amazon: "https://amzn.in/d/cqYvDJb",
+        specs: [
+          "Camera: 200MP Quad Camera with advanced night mode",
+          "Processor: Snapdragon 8 Gen 3, 4nm architecture",
+          "Display: 6.8-inch QHD+ Dynamic AMOLED 2X, 120Hz",
+          "Battery: 5000mAh with 45W fast charging",
+          "Storage: 12GB RAM, 256GB Storage",
+          "OS: Android 14, OneUI 6",
+          "Build: Titanium Frame, Gorilla Glass Victus 2",
+          "Features: S Pen, IP68, 5G, WiFi 7"
+        ]
+      },
+      iphone15: {
+        title: "iPhone 15 Pro Max",
+        price: "₹1,39,900",
+        image: "iphone-image-url",
+        amazon: "iphone-link-url",
+        specs: [
+          "Camera: 48MP main, 5x telephoto, Night mode",
+          "Chip: A17 Pro, 3nm technology",
+          "Display: 6.7-inch Super Retina XDR OLED",
+          "Battery: All-day battery life",
+          "Storage: Up to 1TB",
+          "Material: Titanium body",
+          "OS: iOS 17"
+        ]
+      }
+      // Add more products as needed
+    };
+
+    function getProductId() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("id");
+    }
+
+    function loadProduct() {
+      const productId = getProductId();
+      const product = products[productId];
+      if (!product) return;
+
+      document.getElementById("product-title").textContent = product.title;
+      document.getElementById("product-price").textContent = product.price;
+      document.getElementById("product-img").src = product.image;
+      document.getElementById("amazon-link").href = product.amazon;
+
+      const specsList = document.getElementById("product-specs");
+      specsList.innerHTML = "";
+      product.specs.forEach(spec => {
+        const li = document.createElement("li");
+        li.textContent = spec;
+        specsList.appendChild(li);
+      });
+    }
+
+    function submitFeedback() {
+      const text = document.getElementById("feedbackText").value.trim();
+      if (text) {
+        document.getElementById("feedbackMsg").textContent = "Thank you for your feedback!";
+      } else {
+        document.getElementById("feedbackMsg").textContent = "Please write feedback first.";
+      }
+    }
+
+    loadProduct();
+  </script>
+</body>
+</html>

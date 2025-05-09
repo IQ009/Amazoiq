@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazo IQ - Find Your Perfect Mobile</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="https://postimage.me/images/2025/05/09/1000000549.png" alt="Amazo IQ Logo" style="height: 40px;" />
+        <span style="color: white; font-size: 24px; font-weight: 600;">Amazo IQ</span>
+      </a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="compare.html">Compare</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1>Discover the Latest Mobiles</h1>
+        <p class="hero-subtitle">Explore, compare, and find the perfect mobile for you.</p>
+        <div class="search-container">
+          <input type="text" class="search-box" placeholder="Search Mobile Models..." />
+          <button class="search-button">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-mobiles-section container">
+      <h2>Featured Mobiles</h2>
+      <div class="mobiles-grid">
+        <!-- Samsung Galaxy S24 Ultra -->
+        <div class="mobile-card">
+          <img src="https://i.postimg.cc/Zq5qdpH8/IMG-20250503-WA0003.jpg" alt="Samsung Galaxy S24 Ultra" />
+          <h3>Samsung Galaxy S24 Ultra</h3>
+          <p class="price">₹84,998</p>
+          <a href="https://amzn.in/d/cqYvDJb" class="buy-btn" target="_blank">Buy on Amazon</a>
+        </div>
+
+        <!-- One Plus Nord CE4 5G -->
+        <div class="mobile-card">
+          <img src="https://i.postimg.cc/wTqtY1Rs/IMG-20250503-WA0004.jpg" alt="One Plus Nord CE4 5G" />
+          <h3>One Plus Nord CE4 5G</h3>
+          <p class="price">₹20,998</p>
+          <a href="https://amzn.in/d/iPqME8z" class="buy-btn" target="_blank">Buy on Amazon</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Amazo IQ. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Search functionality script -->
+  <script>
+    const searchInput = document.querySelector('.search-box');
+    const cards = document.querySelectorAll('.mobile-card');
+
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase().replace(/\s+/g, '');
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase().replace(/\s+/g, '');
+        card.style.display = title.includes(searchTerm) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
