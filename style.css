@@ -382,3 +382,27 @@ body {
 .feedback-form button:hover {
   background-color: #1558b0;
 }
+@media (max-width: 600px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    width: 100%;
+    text-align: left;
+  }
+}
