@@ -406,3 +406,32 @@ body {
     text-align: left;
   }
 }
+.compare-table {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+}
+
+.compare-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Table chhoti screen pe readable rahe */
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .compare-table table {
+    font-size: 13px;
+    min-width: unset;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 6px;
+  }
+}
