@@ -382,3 +382,57 @@ body {
 .feedback-form button:hover {
   background-color: #1558b0;
 }
+@media (max-width: 768px) {
+  /* Header responsive (home page) */
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .navbar a {
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Hero section heading */
+  .hero-section h1 {
+    font-size: 28px;
+  }
+
+  /* Search box full width */
+  .search-box {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Compare table scrollable on small screen */
+  .compare-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .compare-table {
+    min-width: 600px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .compare-img {
+    width: 80px;
+  }
+}
