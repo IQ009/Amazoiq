@@ -495,3 +495,20 @@ body {
   display: block;
   margin: 0 auto 15px;
 }
+.product-card img {
+  max-width: 100%;
+  height: 200px; /* Add this to limit huge image height */
+  object-fit: contain; /* Prevents image distortion */
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.product-card h3,
+.product-card .price,
+.product-card .buy-btn {
+  text-align: center;
+}
+.buy-btn {
+  display: inline-block;
+  margin-top: 10px;
+}
